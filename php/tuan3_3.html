@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="sothich">So thich: </label>
+        <select name="sothich" onchange="chonsothich(this.value)">
+            <option value="boiloi">Boi loi</option>
+            <option value="vothuat">Vo thuat</option>
+            <option value="chonsothich">Chon so thich</option>
+        </select>
+    </div>
+    <div id="detail_option">
+        <input type="checkbox" name="boibuom"><label for="boibuom">Boi Buom</label>
+        <input type="checkbox" name="boisai"><label for="boisai">Boi Sai</label>
+        <input type="checkbox" name="boicho"><label for="boicho">Boi Cho</label>
+    </div>
+    <hr>
+    <div>
+        <input type="radio" name="luachon" value="chon" onchange="questionOption(this.value)"><label for="chon">Chon cau hoi</label>
+        <input type="radio" name="luachon" value="nhap" onchange="questionOption(this.value)"><label for="nhap">Nhap cau hoi</label>
+    </div>
+    <div>
+        <label for="">Cau hoi: </label>
+        <select name="choncauhoi" id="choncauhoi">
+            <option value="choncauhoi">Chon cau hoi</option>
+        </select>
+        <input type="text" name="nhapcauhoi" id="nhapcauhoi" placeholder="Nhap cau hoi">
+    </div>
+    <script>
+        function chonsothich(sothich){
+            var detail_option = document.getElementById("detail_option");
+            var s = "";
+            if(sothich == "boiloi")
+                s = 
+                '<input type="checkbox" name="boibuom">Boi Buom'+
+                '<input type="checkbox" name="boisai">Boi Sai'+
+                '<input type="checkbox" name="boicho">Boi Cho';
+            else if(sothich = "vothuat")
+                s = 
+                '<input type="checkbox" name="karate">Karate'+
+                '<input type="checkbox" name="judo">Judo';
+            detail_option.innerHTML = s;
+        }
+
+        function questionOption(luachon){
+            var choncauhoi = document.getElementById("choncauhoi");
+            if(luachon == "chon"){
+                var s = 
+                '<option value="choncauhoi">Chon cau hoi</option>'+
+                '<option value="1">Ban that de thuong</option>'+
+                '<option value="2">mai di hoc them</option>';
+                choncauhoi.innerHTML = s;
+            }
+            else if(luachon == "nhap"){
+                choncauhoi.disabled = true;
+                document.getElementById("nhapcauhoi").focus = true;
+            }
+        }
+    </script>
+</body>
+</html>

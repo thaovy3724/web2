@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    email: <br>
+    <input type="text" onkeyup="checkRegex('email', this.value);"><br>
+    so dien thoai(bắt đầu là số 0, tiếp theo là 8 hoặc 9 ký tự số): <br> 
+    <input type="text" onkeyup="checkRegex('phone', this.value);"><br>
+    name(bdau bang KH tiep theo la 3 ki tu so): <br>
+    <input type="text" onkeyup="checkRegex('name', this.value);"><br>
+    password(toi thieu 8 ki tu): <br>
+    <input type="text" onkeyup="checkRegex('password', this.value);"><br>
+    chuoi co 9 ki tu (3 ki tu hoa va 6 so): <br>
+    <input type="text" onkeyup="checkRegex('chuoi', this.value);"><br>
+    <p></p>
+    <script>
+        function checkRegex(type, val){
+            var reg = "";
+            switch(type){
+                case "email":
+                    reg = /\S+@\S+\.\S+/; 
+                    // '\S': Matches one or more non-whitespace characters
+                    break;
+                
+                case "phone":
+                //Điện thoại: bắt đầu là số 0, tiếp theo là 8 hoặc 9 ký tự số.
+                    reg = /^0(\d{8}|\d{9})$/;
+                    break;
+
+                case "name":
+                    reg = /^KH\d{3}/;
+                    break;
+
+                case "password":
+                    reg = /.{8,}/;
+                    //'.' : Matches any character except a newline.
+                    break;
+                
+                case "chuoi":
+                    reg = /^[A-Z]{3}\d{6}$/;
+                    break;
+            }
+
+            if(!reg.test(val)) document.getElementsByTagName('p')[0].innerHTML="false";
+            else document.getElementsByTagName('p')[0].innerHTML = "true";
+       }
+    </script>
+</body>
+</html>

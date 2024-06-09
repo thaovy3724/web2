@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" onkeyup="testRegular(this.value);">
+    <p></p>
+    <script>
+        function testRegular(pattern){
+            var reg = /[A-Z]{3}\d{6}$/;
+            if(reg.test(pattern))
+                document.getElementsByTagName("p")[0].innerHTML="true";
+            else document.getElementsByTagName("p")[0].innerHTML="false";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-spacing: 2px;
+        }
+
+        input{
+            display: block;
+        }
+
+        table, td{
+            border: 1px solid black;
+        }
+
+        input[type="submit"]{
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="formTinhtoan" onsubmit="getLCM(this)">
+        <table>
+            <tr>
+                <td>Tinh uoc chung boi chung</td>
+            </tr>
+            <tr>
+                <td>
+                    so thu 1
+                    <input type="text" name="num1">
+                </td>
+                <td>
+                    so thu 2
+                    <input type="text" name="num2">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Tinh"></td>
+            </tr>
+            <tr>
+                <td>
+                    Boi chung nho nhat
+                    <input type="text" name="BCNN_val">
+                </td>
+                <td>
+                    Uoc chung lon nhat
+                    <input type="text" name="UCLN_val">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function getGCD(form){
+            var tmp;
+            var num1 = form.num1.value;
+            var num2 = form.num2.value;
+            while(num2 != 0){
+                tmp = num1 % num2;
+                num1 = num2;
+                num2 = tmp;
+            }
+            return num1;
+        }
+    
+        function getLCM(form){
+            var gcd = getGCD(form);
+            var lcm = (form.num1.value * form.num2.value)/gcd;
+            form.UCLN_val.value = gcd;
+            form.BCNN_val.value = lcm;
+        }
+    </script>
+</body>
+</html>

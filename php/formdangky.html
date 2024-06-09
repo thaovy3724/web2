@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="xulydangky.php" method="post" onsubmit="return checkValidateForm(this)">
+        username : <input type="text" name="username"><br>
+        mat khau : <input type="password" name="matkhau"><br>
+        email    : <input type="text" name="email"><br>
+        dienthoai: <input type="text" name="dienthoai"><br>
+        <input type="submit" name="btn_dangky" value="dangky">
+    </form>
+
+    <script>
+        function checkValidateForm(form){
+            var username = form.username.value;
+            var matkhau = form.matkhau.value;
+            var email = form.email.value;
+            var dienthoai = form.dienthoai.value;
+
+            //kiem tra rong
+            //***username
+            if(username == ""){
+                alert("chua dien username");
+                return false;
+            }
+            //***matkhau
+            if(matkhau == ""){
+                alert("chua dien matkhau");
+                return false;
+            }
+            //***email
+            if(email == ""){
+                alert("chua nhap email");
+                return false;
+            }
+
+            var emailRegex = /\S+@\S+\.\S+/;
+            if(!emailRegex.test(email)){
+                alert("email sai dinh dang");
+                return false;
+            }
+            //***dienthoai
+            if(dienthoai==""){
+                alert("chua dien so dien thoai");
+                return false;
+            }
+
+            var dienthoaiRegex = /^0\d{9}/;
+            if(!dienthoaiRegex.test(dienthoai)){
+                alert("so dien thoai sai dinh dang");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="xulydangnhap.php" method="post" onsubmit="return checkValidateForm(this)">
+        username: <input type="text" name="username">
+        mat khau: <input type="password" name="matkhau">
+        <input type="submit" name="btn_dangnhap" value="dangnhap">
+    </form>
+    <script>
+        function checkValidateForm(form){
+            var username = form.username.value;
+            var matkhau = form.matkhau.value;
+            if(username == "" || matkhau == ""){
+                alert("vui long dien du thong tin");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

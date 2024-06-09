@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" name="calarea">
+        <select name="hinh" onchange="calarea.ketqua.value = tinhtoan(this.value)">
+            <option value="tamgiac">Hinh tam giac</option>
+            <option value="chunhat">Hinh chu nhat</option>
+            <option value="vuong">Hinh vuong</option>
+        </select>
+        <input type="text" name="ketqua">
+    </form>
+    <script>
+        function tinhtoan(hinhhoc){
+            var kq = 0;
+            switch (hinhhoc){
+                case "tamgiac":
+                var day = prompt("Nhap canh day cua hinh tam giac");    
+                var chieucao = prompt("Nhap chieu cao cua hinh tam giac");  
+                kq = (day * chieucao) /2;
+                break;
+
+                case "chunhat":
+                    var chieudai = prompt("Nhap chieu dai cua hcn");
+                    var chieurong = prompt("Nhap chieu rong cua hcn");
+                    kq = chieudai * chieurong;
+                    break;
+
+                case "vuong":
+                    var canh = prompt("Nhap canh cua hinh vuong");
+                    kq = canh * canh;
+                    break;
+            }
+            return kq;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" onsubmit="return check_signup(this)" method="post">
+        <h3>DANG KY</h3>
+        <div class="container">
+            <div>
+                <div class="item">
+                    <label for="hoten">Ho va ten:</label>
+                    <input type="text" name="hoten">
+                </div>
+                <div class="item">
+                    <label for="diachi">Dia chi:</label>
+                    <input type="text" name="diachi">
+                </div>
+                <div class="item">
+                    <label for="dienthoai">So dien thoai:</label>
+                    <input type="text" name="dienthoai">
+                </div>
+            </div>
+            <div>
+                <div class="item">
+                    <label for="tendangnhap">Ten dang nhap:</label>
+                    <input type="text" name="tendangnhap">
+                </div>
+                <div class="item">
+                    <label for="matkhau1">Mat khau:</label>
+                    <input type="password" name="matkhau1">
+                </div>
+                <div class="item">
+                    <label for="matkhau2">Nhap lai mat khau:</label>
+                    <input type="password" name="matkhau2">
+                </div>
+                <div id="error_message"></div>
+            </div>
+            <input type="submit" name="submit" value="Dang ky">
+            <p>Tro ve trang <a href="#">Dang nhap</a></p>
+        </div>
+    </form>
+
+    <script>
+        function check_signup(form){
+            var hoten = form.hoten.value;
+            var diachi = form.diachi.value;
+            var dienthoai = form.dienthoai.value;
+            var tendangnhap = form.tendangnhap.value;
+            var matkhau1 = form.matkhau1.value;
+            var matkhau2 = form.matkhau2.value;
+            var mes = document.getElementById("error_message");
+            // ko dc de rong
+            if(hoten == "" || diachi == "" || dienthoai == "" || tendangnhap == "" || matkhau1 == "" || matkhau2 == ""){
+                mes.innerHTML = "Nhap du thong tin";
+                return false;
+            }
+            // chieu dai mat khau toi thieu 6 ky tu
+            if(matkhau1.length < 6){
+                mes.innerHTML = "mat khau toi thieu 6 ky tu";
+                return false;
+            }
+
+            if(matkhau1 != matkhau2){
+                mes.innerHTML = "mat khau nhap lai khong chinh xac";
+                return false;
+            }
+    
+            return true;
+        }
+    </script>
+</body>
+</html>
